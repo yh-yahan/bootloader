@@ -1,28 +1,18 @@
-# Bootloader from Zero - Part 1
+# Bootloader from Zero
 
-A minimal x86 bootloader written in assembly that prints `Hello, World!` using BIOS interrupts.
+Companion source for a series on writing a bootloader from scratch.
 
-This is an educational project focused on the classic (legacy) BIOS + MBR boot process. It is not intended for modern UEFI systems.
+This targets the classic BIOS + MBR boot process, not UEFI.
 
-## What it does
+## Parts
 
-- Fits in the first 512 bytes of a disk (MBR)
-- Is loaded by the BIOS at memory address `0x7C00`
-- Prints a short message using BIOS teletype output (`int 0x10`, function `0x0E`)
-- Halts in an infinite loop after printing
+| Part | Folder | Post |
+|------|--------|------|
+| 1. Hello World | [`parts/01-hello-world`](parts/01-hello-world) | [Bootloader from Zero - Part 1](https://yh-yahan.netlify.app/blogs/bootloader-from-zero-part-1/) |
+| 2. Second stage | [`parts/02-second-stage`](parts/02-second-stage) | [Bootloader from Zero - Part 2](https://yh-yahan.netlify.app/blogs/bootloader-from-zero-part-2/) |
 
 ## Requirements
 
-- [NASM](https://www.nasm.us/) (Netwide Assembler)
-- [QEMU](https://www.qemu.org/) (for testing)
-- `dd` (usually available on Linux/macOS)
-
-## Notes
-
-This targets legacy BIOS only. Modern machines primarily use UEFI.
-The code intentionally skips the partition table to keep the example simple.
-The boot signature 0x55 0xAA is required at the end of the 512-byte sector.
-
-## Related writing
-
-[Bootloader from Zero - Part 1: Hello World](https://yh-yahan.netlify.app/blogs/bootloader-from-zero-part-1/)
+- [NASM](https://www.nasm.us/)
+- [QEMU](https://www.qemu.org/)
+- `dd` and `cat` (usually available on Linux and macOS)
